@@ -14,18 +14,77 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var maxScoreLabel: UILabel!
     
+    var correctCount = 0
+    var incorrectCount = 0
+    var maxScore = 0
+    var questionNumber = 0
+    
+    let imagesList = ImagesList()
+    
+    //get correct or incorrect from answer`s IBAction
+    var pickedAnswer = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //init when reload
+        super.viewWillAppear(animated)
+        
+        correctCount = 0
+        incorrectCount = 0
+        questionNumber = 0
+        
+        imageView.image = UIImage(named: imagesList.list[0].imageText)
     }
     
     @IBAction func answer(_ sender: Any) {
         if (sender as AnyObject).tag == 1
         {//pushed check button
-            
+            pickedAnswer = true
         }
         else if (sender as AnyObject).tag == 2
         {//pushed cross button
-            
+            pickedAnswer = false
         }
+        
+        check()
+        nextQuestion()
+    }
+    
+    func check()
+    {
+        let correctAnswer = imagesList.list[questionNumber].answer
+        
+        if correctAnswer == pickedAnswer
+        {
+            correctCount += 1
+            print("correct")
+        }
+        else
+        {
+            incorrectCount += 1
+            print("wrong")
+        }
+    }
+    
+    func nextQuestion ()
+    {
+        if questionNumber <= 9
+        {
+            questionNumber += 1
+            imageView.image = UIImage(named: imagesList.list[questionNumber].imageText)
+        }
+        else
+        {
+            print("Finished")
+            
+            performSegue(withIdentifier: "next", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
     }
 }
