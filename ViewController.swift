@@ -85,6 +85,12 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        <#code#>
+        if(segue.identifier == "next")
+        {
+            let nextVC = segue.destination as! NextViewController
+            
+            nextVC.correctedCount = correctCount
+            nextVC.incorrectedCount = incorrectCount
+        }
     }
 }

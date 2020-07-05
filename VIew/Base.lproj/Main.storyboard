@@ -108,6 +108,10 @@
                         <color key="backgroundColor" red="0.35075026287776023" green="0.82469474755583361" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Nte-ng-Dem"/>
                     </view>
+                    <connections>
+                        <outlet property="correctLabel" destination="Yde-OA-eZJ" id="8Ke-A7-R8H"/>
+                        <outlet property="incorrectLabel" destination="v7y-Kd-4hi" id="Zda-Hy-U7f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J70-m2-UWc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

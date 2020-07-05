@@ -14,7 +14,7 @@ class ImagesModel {
     
     init(imageName: String, collectOrNot: Bool)
     {
-        imageText = imageName!
-        answer = collectOrNot!
+        imageText = imageName
+        answer = collectOrNot
     }
 }
