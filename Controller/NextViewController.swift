@@ -8,14 +8,22 @@
 
 import UIKit
 
+protocol NowMaxScoreDelegate {
+    func nowMaxScore(score: Int)
+}
+
 class NextViewController: UIViewController {
     
     @IBOutlet weak var correctLabel: UILabel!
     
     @IBOutlet weak var incorrectLabel: UILabel!
     
+    var delegate: NowMaxScoreDelegate?
+    
     var correctedCount = 0
     var incorrectedCount = 0
+    
+    var beforeCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +34,17 @@ class NextViewController: UIViewController {
     
     
     @IBAction func back(_ sender: Any) {
+        if beforeCount < correctedCount
+        {
+            UserDefaults.standard.set(correctLabel, forKey: "beforeCount")
+            
+            delegate?.nowMaxScore(score: correctedCount)
+        }
+        else
+        {
+            
+        }
+        
         dismiss(animated: true, completion: nil)
     }
     
