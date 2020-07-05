@@ -12,9 +12,20 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var maxScoreLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
+    @IBAction func answer(_ sender: Any) {
+        if (sender as AnyObject).tag == 1
+        {//pushed check button
+            
+        }
+        else if (sender as AnyObject).tag == 2
+        {//pushed cross button
+            
+        }
+    }
 }
