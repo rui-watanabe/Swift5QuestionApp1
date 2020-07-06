@@ -12,7 +12,7 @@ import AVFoundation
 class SoundFile {
     var player: AVAudioPlayer?
     
-    func play(fileName: String, extensionName: String)
+    func playSound(fileName: String, extensionName: String)
     {
         let soundURL = Bundle.main.url(forResource: fileName, withExtension: extensionName)
         
