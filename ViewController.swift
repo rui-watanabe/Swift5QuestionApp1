@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, NowMaxScoreDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -91,6 +91,11 @@ class ViewController: UIViewController {
         }
     }
     
+    func nowMaxScore(score: Int) {
+        maxScoreLabel.text = String(score)
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "next")
         {
@@ -98,6 +103,7 @@ class ViewController: UIViewController {
             
             nextVC.correctedCount = correctCount
             nextVC.incorrectedCount = incorrectCount
+            nextVC.delegate = self
         }
     }
 }
