@@ -21,7 +21,7 @@ class ViewController: UIViewController, NowMaxScoreDelegate {
     
     let imagesList = ImagesList()
     
-    var withOutMP3 = WithOutMP3()
+    var soundFile = SoundFile()
     
     //get correct or incorrect from answer`s IBAction
     var pickedAnswer = false
@@ -51,12 +51,12 @@ class ViewController: UIViewController, NowMaxScoreDelegate {
     @IBAction func answer(_ sender: Any) {
         if (sender as AnyObject).tag == 1
         {//pushed check button
-            withOutMP3.playSound(fileName: "marusound", extensionName: "mp3")
-            
+            soundFile.playSound(fileName: "maruSound", extensionName: "mp3")
             pickedAnswer = true
         }
         else if (sender as AnyObject).tag == 2
         {//pushed cross button
+            soundFile.playSound(fileName: "batsuSound", extensionName: "mp3")
             pickedAnswer = false
         }
         
