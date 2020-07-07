@@ -26,8 +26,19 @@ class ViewController: UIViewController, NowMaxScoreDelegate {
     //get correct or incorrect from answer`s IBAction
     var pickedAnswer = false
     
+    var changeColor = ChangeColor()
+    var grandientLayer = CAGradientLayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        grandientLayer = changeColor.changeColor(topR: 0.07, topG: 0.13, topB: 0.26, topAlpha: 1.0, bottomR: 0.54, bottomG: 0.74, bottomB: 0.74, bottomAlpha: 1.0)
+        
+        grandientLayer.frame = view.bounds
+        
+        view.layer.insertSublayer(grandientLayer, at: 0)
+        
+        imageView.layer.cornerRadius = 20.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,6 +107,8 @@ class ViewController: UIViewController, NowMaxScoreDelegate {
     }
     
     func nowMaxScore(score: Int) {
+        soundFile.playSound(fileName: "sound", extensionName: "mp3")
+
         maxScoreLabel.text = String(score)
     }
     

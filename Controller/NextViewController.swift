@@ -41,7 +41,7 @@ class NextViewController: UIViewController {
     @IBAction func back(_ sender: Any) {
         if beforeCount < correctedCount
         {
-            UserDefaults.standard.set(correctLabel, forKey: "beforeCount")
+            UserDefaults.standard.set(correctedCount, forKey: "beforeCount")
             
             delegate?.nowMaxScore(score: correctedCount)
         }
